@@ -9,6 +9,7 @@ import { Grid } from "./Components/Grid/Grid"
 import { Navbar } from "./Components/Navbar/Navbar"
 import { Main } from "./Components/Main/Main"
 import { EducationList } from "./AdminPages/Educations/EducationList"
+import { EducationCreate } from "./AdminPages/Educations/EducationCreate"
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             </Route>
             <Route path="/educations" element={<RequireAuth />}>
               <Route index element={<EducationList />} />
+              <Route path="create" element={<EducationCreate />} />
             </Route>
             
           </Routes>
