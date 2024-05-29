@@ -7,6 +7,10 @@ export const FormContainer = styled.form`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 300px;
 
+  span {
+      color: red
+  }
+
   div {
     margin-bottom: 0.8rem;
   }

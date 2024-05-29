@@ -1,10 +1,9 @@
-import { Link } from 'react-router-dom'
-import { HeaderContainer } from './Header.style'
+import { HeaderContainer } from "./Header.style"
 
-export const Header = ({ area }) => {
-  return (
-	<HeaderContainer $area={area}>
-		<Link to="/">SONGBOOK</Link>
-	</HeaderContainer>
-  )
+export const Header = ({area}) => {
+	return (
+		<HeaderContainer $area={area}>
+			<h1>Erasmus World Map</h1>
+		</HeaderContainer>
+	)
 }

@@ -2,35 +2,32 @@ import { useForm } from "react-hook-form"
 import { useAuth } from "../../Providers/AuthProvider"
 import axios from "axios"
 import { FormContainer } from "../../Styled/Form.style"
+import { useState } from "react"
+import { LoginFormContainer } from "./LoginForm.style"
 
 export const LoginForm = () => {
-  const { loginData, setLoginData } = useAuth()
+  const { loginData, login, logout } = useAuth()
+  const [ message, setMessage ] = useState("")
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm()
 
-  const submitHandler = async (data) => {
+  const handleLogin = async (data) => {
     const endpoint = `https://api.mediehuset.net/token`
     try {
       const result = await axios.post(endpoint, data)
-      sessionStorage.setItem("access_token", JSON.stringify(result.data))
-      setLoginData(result.data)
+      login(result.data)
     } catch (error) {
-      console.error(error)
+      setMessage("Forkert brugernavn eller adgangskode")
     }
   }
 
-  const LogOut = () => {
-    sessionStorage.removeItem("access_token")
-    setLoginData("")
-  }
-
   return (
-    <>
+    <LoginFormContainer>
       {!loginData ? (
-        <FormContainer method="POST" onSubmit={handleSubmit(submitHandler)}>
+        <FormContainer method="POST" onSubmit={handleSubmit(handleLogin)}>
           <div className="input-group">
             <label htmlFor="username">Brugernavn:</label>
             <input
@@ -49,6 +46,7 @@ export const LoginForm = () => {
             />
             {errors.password && <span>Password skal udfyldes</span>}
           </div>
+          {message && <span>{message}</span>}
           <div>
             <button>Login</button>
           </div>
@@ -58,10 +56,12 @@ export const LoginForm = () => {
           <h2>
             Du er logget ind som{" "}
             {`${loginData.user.firstname} ${loginData.user.lastname}`}
+
           </h2>
-          <button onClick={() => LogOut()}>Log ud</button>
+          <button onClick={() => logout()}>Log ud</button>
+          
         </div>
       )}
-    </>
+   </LoginFormContainer>
   )
 }

@@ -5,11 +5,6 @@ const GlobalStyle = createGlobalStyle`
 	body {
 		font-family: 'Arial', sans-serif;
 		background-color: #fff;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		height: 100vh;
-		margin: 0;	
 	}
 
 	h1 {
