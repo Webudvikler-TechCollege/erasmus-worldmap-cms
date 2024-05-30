@@ -7,9 +7,12 @@ export const EducationList = () => {
 	const [ data, setData ] = useState([])
 
 	const arrCols = [
-		{ name: "id", title: "ID" },
 		{ name: "name", title: "Titel" },
 		{ name: "action", title: "Handling" }
+	]
+
+	const arrButtons = [
+		{ text: "Opret ny", link: "/educations/create" }
 	]
 
 	useEffect(() => {
@@ -23,7 +26,7 @@ export const EducationList = () => {
 
 
 	return (
-		<ContentWrapper title="Uddannelser" subtitle="Oversigt">
+		<ContentWrapper title="Uddannelser" subtitle="Oversigt" buttons={arrButtons}>
 			<ListPresenter cols={arrCols} data={data} />
 		</ContentWrapper>
 	)

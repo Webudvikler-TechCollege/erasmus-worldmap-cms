@@ -10,6 +10,9 @@ import { Navbar } from "./Components/Navbar/Navbar"
 import { Main } from "./Components/Main/Main"
 import { EducationList } from "./AdminPages/Educations/EducationList"
 import { EducationCreate } from "./AdminPages/Educations/EducationCreate"
+import { EducationEdit } from "./AdminPages/Educations/EducationEdit"
+import { EducationDelete } from "./AdminPages/Educations/EducationDelete"
+import { EducationView } from "./AdminPages/Educations/EducationView"
 
 function App() {
   return (
@@ -27,6 +30,9 @@ function App() {
             <Route path="/educations" element={<RequireAuth />}>
               <Route index element={<EducationList />} />
               <Route path="create" element={<EducationCreate />} />
+              <Route path="view/:id" element={<EducationView />} />
+              <Route path="edit/:id" element={<EducationEdit />} />
+              <Route path="delete/:id" element={<EducationDelete />} />
             </Route>
             
           </Routes>

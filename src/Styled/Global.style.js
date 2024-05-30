@@ -56,7 +56,9 @@ const GlobalStyle = createGlobalStyle`
 		* {
 			border: 0px none  !important;
 		}
-	}		
+	}	
+	
+	
 
 `
 export { GlobalStyle, Reset }
