@@ -3,8 +3,10 @@ import { Reset } from "./Mixins.style"
 
 const GlobalStyle = createGlobalStyle`
 	body {
+		${Reset};
 		font-family: 'Arial', sans-serif;
-		background-color: #fff;
+		color: ${(props) => props.theme.colors.primary};
+		background-color: ${(props) => props.theme.colors.dark};
 	}
 
 	h1 {
@@ -58,6 +60,13 @@ const GlobalStyle = createGlobalStyle`
 		}
 	}	
 	
+	.success {
+		color: green;
+	}
+
+	.error {
+		color: red;
+	}
 	
 
 `

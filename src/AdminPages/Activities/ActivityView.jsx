@@ -3,6 +3,8 @@ import { ContentWrapper } from "../../Components/ContentWrapper/ContentWrapper"
 import { ViewPresenter } from "../../Components/ViewPresenter/ViewPresenter"
 import { useParams } from "react-router-dom"
 import { ActivityModel as model } from "../../Models/Activity.model"
+import { AiOutlineCheck } from "react-icons/ai";
+import { AiOutlineClose } from "react-icons/ai";
 
 export const ActivityView = () => {
 	const [ data, setData ] = useState([])
@@ -17,7 +19,7 @@ export const ActivityView = () => {
 					modifiedData[elm.name] = data[elm.name.split('_')[0]];
 				});
 				model.elements.filter(x => x.type === 'checkbox').forEach(elm => {
-					modifiedData[elm.name] = parseInt(data[elm.name]) === 1 ? 'Ja' : 'Nej';
+					modifiedData[elm.name] = parseInt(data[elm.name]) === 1 ? <AiOutlineCheck className="success" /> : <AiOutlineClose className="error" />;
 				});
 				setData(modifiedData);
 			} catch (error) {

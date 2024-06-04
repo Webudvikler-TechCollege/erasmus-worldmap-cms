@@ -42,6 +42,7 @@ export const AdminTable = styled.table`
 
   &.view td {
       vertical-align: top;
+      padding: 1rem 0;
   }
 
   .field {

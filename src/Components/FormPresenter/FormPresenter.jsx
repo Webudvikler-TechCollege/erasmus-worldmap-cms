@@ -22,7 +22,6 @@ export const FormPresenter = ({ model, id = 0 }) => {
       if(id) {
         const apidata = await model.getSingleRecord(id)
         const data = formalizeData(apidata)
-        console.log(data);
         return data
       } else {
         const data = convertArrayToObject(model.elements)
@@ -32,7 +31,6 @@ export const FormPresenter = ({ model, id = 0 }) => {
   })
 
   useEffect(() => {
-
     const initializeForm = async () => {
       const getSelectOptions = async () => {
         const selectOptions = {}

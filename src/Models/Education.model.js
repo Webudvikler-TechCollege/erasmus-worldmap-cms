@@ -4,8 +4,18 @@ export class EducationModel {
 	static section = 'Uddannelser'
 
 	static elements = [
-		{ name: "name", title: "Navn", type: "text", required: true, onlist: true },
-		{ name: "description", title: "Beskrivelse", type: "textarea", required: true, onlist: false }
+		{ 
+			name: "name", 
+			title: "Navn", 
+			type: "text", 
+			required: true
+		},
+		{ 
+			name: "description", 
+			title: "Beskrivelse", 
+			type: "textarea", 
+			required: true
+		}
 	]
 
 	static path = 'educations'

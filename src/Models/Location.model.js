@@ -4,13 +4,51 @@ export class LocationModel {
 	static section = 'Lokationer'
 
 	static elements = [
-		{ name: "name", title: "Navn", type: "text", required: true, onlist: true },
-		{ name: "address", title: "Adresse", type: "text", required: true, onlist: false  },
-		{ name: "zipcode", title: "Postnummer", type: "number", required: true, onlist: false  },
-		{ name: "city", title: "By", type: "text", required: true, onlist: true, onlist: true  },
-		{ name: "country", title: "Land", type: "text", required: true, onlist: true, onlist: true  },
-		{ name: "longtitude", title: "Længdegrad", type: "text", required: true, onlist: false  },
-		{ name: "latitude", title: "Breddegrad", type: "text", required: true, onlist: false  }
+		{ 
+			name: "name", 
+			title: "Navn", 
+			type: "text", 
+			required: true, 
+		},
+		{ 
+			name: "address", 
+			title: "Adresse", 
+			type: "text", 
+			required: true
+		},
+		{ 
+			name: "zipcode", 
+			title: "Postnummer", 
+			type: "number", 
+			default: 0,
+			required: true
+		},
+		{ 
+			name: "city", 
+			title: "By", 
+			type: "text", 
+			required: true
+		},
+		{ 
+			name: "country", 
+			title: "Land", 
+			type: "text", 
+			required: true
+		},
+		{ 
+			name: "longtitude", 
+			title: "Længdegrad", 
+			type: "text", 
+			default: 0,
+			required: true
+		},
+		{ 
+			name: "latitude", 
+			title: "Breddegrad", 
+			type: "text", 
+			default: 0,
+			required: true
+		}
 	]
 
 	static path = 'locations'
