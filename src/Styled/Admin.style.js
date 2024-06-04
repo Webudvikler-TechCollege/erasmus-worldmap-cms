@@ -53,18 +53,26 @@ export const AdminTable = styled.table`
 
 export const AdminForm = styled.form`
   div {
-    width: 50rem;
     display: grid;
+    justify-items: start;
     grid-template-columns: 2fr 10fr;
     margin-bottom: 20px;
 
-    input,
+    input[type="text"],
+    input[type="date"],
+    input[type="number"],
+    input[type="email"],
+    input[type="password"],
     select,
     textarea {
       box-sizing: border-box;
-      width: 100%;
       padding: 5px;
+      width: 80%;
       font-size: 1rem;
+    }
+
+    input[type="checkbox"] {
+      text-align: left;
     }
 
     textarea {
@@ -75,19 +83,6 @@ export const AdminForm = styled.form`
   .buttonPanel {
     display: flex;
     justify-content: flex-end;
-
-    button {
-      background: ${(props) => props.theme.colors.primary};
-      border: none;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      color: white;
-      cursor: pointer;
-      font-weight: bold;
-      padding: 10px 20px;
-      text-align: center;
-      text-decoration: none;
-      margin-left: 0.5rem;
-    }
   }
 
   span {

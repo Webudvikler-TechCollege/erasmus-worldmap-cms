@@ -1,15 +1,15 @@
 import { AdminTable } from "../../Styled/Admin.style"
 
-export const ViewPresenter = ({ cols, data }) => {
+export const ViewPresenter = ({ model, data }) => {
   return (
     <AdminTable className="view">
       <tbody>
-        {cols &&
-          cols.map((item, index) => {
+        {model.elements &&
+          model.elements.map((element, index) => {
             return (
               <tr key={index}>
-                <td className="field">{item.title}</td>
-                <td>{data[item.name]}</td>
+                <td className="field">{element.title}</td>
+                <td>{data[element.name]}</td>
               </tr>
             )
           })}

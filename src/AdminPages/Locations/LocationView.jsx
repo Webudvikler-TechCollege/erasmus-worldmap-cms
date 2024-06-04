@@ -3,9 +3,9 @@ import { useEffect, useState } from "react"
 import { ContentWrapper } from "../../Components/ContentWrapper/ContentWrapper"
 import { ViewPresenter } from "../../Components/ViewPresenter/ViewPresenter"
 import { useParams } from "react-router-dom"
-import { EducationModel as model } from "../../Models/Education.model"
+import { LocationModel as model } from "../../Models/Location.model"
 
-export const EducationView = () => {
+export const LocationView = () => {
 	const [ data, setData ] = useState([])
 	const { id } = useParams()
 

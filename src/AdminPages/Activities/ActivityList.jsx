@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react"
 import { ListPresenter } from "../../Components/ListPresenter/ListPresenter"
 import { ContentWrapper } from "../../Components/ContentWrapper/ContentWrapper"
-import { EducationModel as model } from "../../Models/Education.model"
+import { ActivityModel as model } from "../../Models/Activity.model"
 
-export const EducationList = () => {
+export const ActivityList = () => {
 	const [ data, setData ] = useState([])
 
-	
-	const list_items = ['name']
+	const list_items = ['title', 'start_date', 'stop_date']
 	const elements = model.elements.filter(item => list_items.includes(item.name))
 	elements.push({ name: "action", title: "Handling" })
 

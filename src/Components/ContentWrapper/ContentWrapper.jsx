@@ -7,6 +7,7 @@
 
 import { Link } from "react-router-dom"
 import { ContentWrapperContainer } from "./ContentWrapper.style"
+import { Button } from "../Button/Button"
 
 export const ContentWrapper = ({
   title,
@@ -38,16 +39,16 @@ export const ContentWrapper = ({
               if (button.link) {
                 // If it's a link button
                 return (
-                  <Link className="button" key={key} to={button.link}>
-                    <button>{button.text}</button>
+                  <Link key={key} to={button.link}>
+                    <Button>{button.text}</Button>
                   </Link>
                 )
               } else if (button.event) {
                 // If it's an event button
                 return (
-                  <button className="button" key={key} onClick={button.event}>
+                  <Button key={key} onClick={button.event}>
                     {button.text}
-                  </button>
+                  </Button>
                 )
               }
             })}

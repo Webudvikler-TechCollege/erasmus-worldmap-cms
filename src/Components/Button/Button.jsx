@@ -1,9 +1,9 @@
 import { ButtonContainer } from "./Button.style"
 
-export const Button = ({title, type = 'submit'}) => {
+export const Button = ({children, event, type = 'submit'}) => {
 	return (
-		<ButtonContainer type={type}>
-			{title}
+		<ButtonContainer type={type} onClick={event}>
+			{children}
 		</ButtonContainer>
 	)
 }

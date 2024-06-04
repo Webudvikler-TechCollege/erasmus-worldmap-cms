@@ -1,13 +1,15 @@
+import axios from "axios"
 import { useEffect, useState } from "react"
 import { ListPresenter } from "../../Components/ListPresenter/ListPresenter"
 import { ContentWrapper } from "../../Components/ContentWrapper/ContentWrapper"
-import { EducationModel as model } from "../../Models/Education.model"
+import { LocationModel as model } from "../../Models/Location.model"
+import { useLocation } from "react-router-dom"
 
-export const EducationList = () => {
+export const LocationList = () => {
 	const [ data, setData ] = useState([])
+	const location = useLocation()
 
-	
-	const list_items = ['name']
+	const list_items = ['name', 'city', 'country']
 	const elements = model.elements.filter(item => list_items.includes(item.name))
 	elements.push({ name: "action", title: "Handling" })
 

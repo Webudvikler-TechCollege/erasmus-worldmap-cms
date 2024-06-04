@@ -5,7 +5,10 @@ export const Navbar = ({area}) => {
 		<NavBarContainer $area={area}>
 			<ul>
 				<li><a href="/home">Home</a></li>
+				<li><a href="/activities">Aktiviteter</a></li>
 				<li><a href="/educations">Educations</a></li>
+				<li><a href="/locations">Locations</a></li>
+				<li><a href="/form">Test</a></li>
 			</ul>
 		</NavBarContainer>
 	)

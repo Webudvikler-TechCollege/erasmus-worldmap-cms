@@ -4,15 +4,15 @@ import { RiDeleteBin2Fill } from "react-icons/ri"
 import { PiPencil } from "react-icons/pi"
 import { FaEye } from "react-icons/fa6";
 
-export const ListPresenter = ({ cols, data }) => {
+export const ListPresenter = ({ elements, data }) => {
 
 	return (
 		<AdminTable className="list">
 			<thead>
 				<tr>
-				{cols.map((col, index) => {
+				{elements.map((element, index) => {
 					return (
-						<th key={index}>{col.title}</th>
+						<th key={index}>{element.title}</th>
 					)
 				})}
 				</tr>
@@ -24,9 +24,9 @@ export const ListPresenter = ({ cols, data }) => {
 									<Link className="actionbtn" to={`view/${item.id}`}><FaEye /></Link></>
 					return (
 						<tr key={item.id}>
-							{cols.map((col, key) => {
+							{elements.map((element, key) => {
 								return (
-									<td key={key}>{item[col.name]}</td>
+									<td key={key}>{item[element.name]}</td>
 								)
 							})}
 						</tr>
