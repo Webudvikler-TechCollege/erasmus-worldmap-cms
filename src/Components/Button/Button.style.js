@@ -13,4 +13,8 @@ export const ButtonContainer = styled.button`
 	text-align: center;
 	text-decoration: none;
 	margin-left: 0.5rem;
+
+	&:hover {
+		background: ${(props) => props.theme.colors.secondary};
+	}
 `

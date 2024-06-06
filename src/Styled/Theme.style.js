@@ -1,12 +1,12 @@
 export const theme = {
   colors: {
-    primary: "#000",
-    //primary: "#637A9F",
-    secondary: "#FFF3CF",
-    tertiary: "#C9D7DD",
-    quaternary: "#E8C872",
-    dark: "#000",
-    light: "#fff",
+    primary: "#247BA0", // Blue
+    secondary: "#F25F5C", // Red
+    tertiary: "#70C1B3", // Green
+    quaternary: "#50514F", // Grey
+    quinary: "#FFE066", // Yellow
+    dark: "#000", // Black
+    light: "#fff", // White
   },
   fonts: ["Titillium Web", "Open Sans", "monospace"],
   fontsizes: {

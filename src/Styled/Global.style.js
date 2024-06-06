@@ -10,22 +10,28 @@ const GlobalStyle = createGlobalStyle`
 	}
 
 	h1 {
-		color: ${(props) => props.theme.colors.primary};
+		color: ${(props) => props.theme.colors.quaternary};
 		font-family: ${(props) => props.theme.fonts[0]};
 		font-size: ${(props) => props.theme.fontsizes.l};
 		margin-block: 0.8rem;
 	}
 
 	h2 {
-		color: ${(props) => props.theme.colors.primary};
+		color: ${(props) => props.theme.colors.quaternary};
 		font-family: ${(props) => props.theme.fonts[0]};
 		font-size: 1.5rem;
 		margin-block: 0rem;
 		margin-bottom: 0rem;
 	}
 
+	h3 {
+		color: ${(props) => props.theme.colors.quaternary};
+		font-family: ${(props) => props.theme.fonts[0]};
+		font-size: 1.2rem;
+	}
+
 	h4 {
-		color: ${(props) => props.theme.colors.primary};
+		color: ${(props) => props.theme.colors.quaternary};
 		font-family: ${(props) => props.theme.fonts[0]};
 		font-size: 1rem;
 		margin-block: 0rem;
@@ -65,6 +71,7 @@ const GlobalStyle = createGlobalStyle`
 	}
 
 	.error {
+		font-size: ${(props) => props.theme.fontsizes.s};
 		color: red;
 	}
 	

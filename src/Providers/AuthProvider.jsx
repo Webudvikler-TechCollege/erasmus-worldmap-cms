@@ -20,14 +20,14 @@ export const AuthProvider = ({children}) => {
 	const login = data => {
 		setLoginData(data)
 		sessionStorage.setItem('access_token', JSON.stringify(data))
-		navigate('/home')
+		navigate('/')
 	}
 
 	const logout = () => {
 		setLoginData(null)
 		sessionStorage.removeItem('access_token')
 		navigate('/')
-	}
+	}	
 
 	useEffect(() => {
 		if(sessionStorage.getItem('access_token')) {

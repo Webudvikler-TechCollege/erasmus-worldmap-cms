@@ -8,34 +8,43 @@ export const AdminTable = styled.table`
   border-spacing: 0px;
   font-size: 0.9rem;
 
+  &.list tr:nth-child(even) {
+      background-color: #f3f3f3;
+  }
+
   td,
-  th {
+  th,
+  td {
     padding: 0.3rem;
   }
 
   th {
-    background-color: #000;
+    background-color: ${(props) => props.theme.colors.quaternary};
     color: #fff;
-    font-weight: normal;
+    font-weight: bold;
     text-align: left;
   }
 
-  td {
-    border-bottom: solid 1px #ccc;
-    color: black;
 
-    .list&:last-of-type {
+  td {
+    border-bottom: solid 1px ${(props) => props.theme.colors.quaternary};
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    color: ${(props) => props.theme.colors.dark};
+
+
+
+    &:last-of-type {
       width: 10%;
-      text-align: right;
       a {
         color: ${(props) => props.theme.colors.primary};
         :hover {
-          color: ${(props) => props.theme.colors.tertiary};
+          color: ${(props) => props.theme.colors.secondary};
         }
       }
       .actionbtn {
         font-size: medium;
-        margin-left: 0.3rem;
+        margin-left: 0.4rem;
       }
     }
   }
@@ -49,7 +58,6 @@ export const AdminTable = styled.table`
     font-weight: bold;
     width: 20%;
   }
-
 `
 
 export const AdminForm = styled.form`
@@ -61,6 +69,7 @@ export const AdminForm = styled.form`
 
     input[type="text"],
     input[type="date"],
+    input[type="datetime-local"],
     input[type="number"],
     input[type="email"],
     input[type="password"],
@@ -88,7 +97,7 @@ export const AdminForm = styled.form`
 
   span {
     display: block;
-    color: red;
+    color: ${(props) => props.theme.colors.secondary};
     font-size: ${(props) => props.theme.fontsizes.xs};
   }
 `

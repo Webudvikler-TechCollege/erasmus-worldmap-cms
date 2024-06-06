@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { ResetList } from "../../Styled/Mixins.style"
 
-export const NavBarContainer = styled.nav`
+export const NavBarContainer = styled.div`
   grid-area: ${(props) => props.$area};
 
   ul {
@@ -16,7 +16,7 @@ export const NavBarContainer = styled.nav`
         white-space: nowrap;
 
         &:hover {
-          color: ${(props) => props.theme.colors.quaternary};
+          color: ${(props) => props.theme.colors.secondary};
         }
       }
     }
