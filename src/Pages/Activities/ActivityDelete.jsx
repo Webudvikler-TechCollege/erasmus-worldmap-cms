@@ -6,6 +6,7 @@ import { useAuth } from "../../Providers/AuthProvider"
 import { ActivityModel as model } from "../../Models/Activity.model"
 import { setHeaderOptions } from "../../Utils/Main.utils"
 import { Button } from "../../Components/Button/Button"
+import { getSingleRecord } from "../../Utils/ApiUtils"
 
 export const ActivityDelete = () => {
   const { id } = useParams()
@@ -14,13 +15,13 @@ export const ActivityDelete = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    model.getSingleRecord(id)
+    getSingleRecord(model.endpoint,id)
       .then(data => setData(data))
       .catch(error => console.error(error))
   }, [setData])
 
   const handleDelete = async () => {
-    await model.deleteRecord(id, setHeaderOptions(loginData.access_token))
+    await deleteRecord(model.endpoint, id, setHeaderOptions(loginData.access_token))
  	  navigate(`/${model.path}`)
   }
 

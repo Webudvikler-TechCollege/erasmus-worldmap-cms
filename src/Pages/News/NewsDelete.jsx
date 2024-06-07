@@ -6,6 +6,7 @@ import { useAuth } from "../../Providers/AuthProvider"
 import { setHeaderOptions } from "../../Utils/Main.utils"
 import { Button } from "../../Components/Button/Button"
 import { NewsModel as model } from "../../Models/News.model"
+import { deleteRecord, getSingleRecord } from "../../Utils/ApiUtils"
 
 export const NewsDelete = () => {
   const { id } = useParams()
@@ -14,13 +15,13 @@ export const NewsDelete = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    model.getSingleRecord(id)
+    getSingleRecord(model.endpoint, id)
       .then(data => setData(data))
       .catch(error => console.error(error))
   }, [setData])
 
   const handleDelete = async () => {
-    const { error } = await model.deleteRecord(id, setHeaderOptions(loginData.access_token))
+    const { error } = await deleteRecord(model.endpoint, id, setHeaderOptions(loginData.access_token))
     if(error) return console.error(error)
  	  navigate(`/${model.path}`)
   }

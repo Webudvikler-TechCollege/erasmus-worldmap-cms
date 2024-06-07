@@ -4,6 +4,7 @@ import { ListPresenter } from "../../Components/Presenters/ListPresenter"
 import { ContentWrapper } from "../../Components/ContentWrapper/ContentWrapper"
 import { LocationModel as model } from "../../Models/Location.model"
 import { useLocation } from "react-router-dom"
+import { getAllRecords } from "../../Utils/ApiUtils"
 
 export const LocationList = () => {
 	const [ data, setData ] = useState([])
@@ -18,7 +19,7 @@ export const LocationList = () => {
 	]
 
 	useEffect(() => {
-		model.getAllRecords()
+		getAllRecords(model.endpoint)
 			.then(records => setData(records))
 			.catch(error => console.error(error));
 	}, [setData]);

@@ -5,6 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom"
 import { Button } from "../Button/Button"
 import { convertArrayToObject, formalizeData, setHeaderOptions } from "../../Utils/Main.utils"
 import { useEffect, useState } from "react"
+import { createRecord, getAllRecords, getSingleRecord, updateRecord } from "../../Utils/ApiUtils"
 
 export const FormPresenter = ({ model, id = 0 }) => {
   const { loginData } = useAuth()
@@ -20,7 +21,7 @@ export const FormPresenter = ({ model, id = 0 }) => {
   } = useForm({
     defaultValues: async () => {
       if(id) {
-        const apidata = await model.getSingleRecord(id)
+        const apidata = await getSingleRecord(model.endpoint, id)
         const data = formalizeData(apidata)
         return data
       } else {
@@ -37,12 +38,11 @@ export const FormPresenter = ({ model, id = 0 }) => {
         for (const element of model.elements) {
           if (element.model) {
             try {
-              const result = await element.model.getAllRecords()
+              const result = await getAllRecords(element.model.endpoint)
               selectOptions[element.name] = result
             } catch (error) {
               console.error(
-                `Error fetching options for ${element.name}:`,
-                error
+                `Error fetching options for ${element.name}:`, error
               )
             }
           }
@@ -56,8 +56,8 @@ export const FormPresenter = ({ model, id = 0 }) => {
   }, [model.elements])
 
   const formHandler = async data => {
-    const method = id ? "updateRecord" : "createRecord"
-    const result = await model[method](data, setHeaderOptions(loginData.access_token))
+    const method = id ? updateRecord : createRecord
+    const result = await method(model.endpoint, data, setHeaderOptions(loginData.access_token))
     const return_id = result.id ? result.id : id
     console.log(return_id);
     navigate(`/${location.pathname.split("/")[1]}/view/${return_id}`)
@@ -109,7 +109,7 @@ export const FormPresenter = ({ model, id = 0 }) => {
               <option value="">Vælg</option>
               {options.map((option, index) => (
                 <option key={index} value={option.id}>
-                  {option.listname}
+                  {option.name}
                 </option>
               ))}
             </select>

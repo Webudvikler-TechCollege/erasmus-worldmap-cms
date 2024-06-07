@@ -4,13 +4,14 @@ import { ContentWrapper } from "../../Components/ContentWrapper/ContentWrapper"
 import { ViewPresenter } from "../../Components/Presenters/ViewPresenter"
 import { useParams } from "react-router-dom"
 import { LocationModel as model } from "../../Models/Location.model"
+import { getSingleRecord } from "../../Utils/ApiUtils"
 
 export const LocationView = () => {
 	const [ data, setData ] = useState([])
 	const { id } = useParams()
 
 	useEffect(() => {
-		model.getSingleRecord(id)
+		getSingleRecord(model.endpoint,id)
 			.then(data => setData(data))
 			.catch(error => console.error(error))
 	}, [setData])

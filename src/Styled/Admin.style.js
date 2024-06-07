@@ -54,6 +54,12 @@ export const AdminTable = styled.table`
       padding: 1rem 0;
   }
 
+  &.view :first-child {
+    width: 1%;
+  }
+
+
+
   .field {
     font-weight: bold;
     width: 20%;

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { ListPresenter } from "../../Components/Presenters/ListPresenter"
 import { ContentWrapper } from "../../Components/ContentWrapper/ContentWrapper"
 import { EducationModel as model } from "../../Models/Education.model"
+import { getAllRecords } from "../../Utils/ApiUtils"
 
 export const EducationList = () => {
 	const [ data, setData ] = useState([])
@@ -15,7 +16,7 @@ export const EducationList = () => {
 	]
 
 	useEffect(() => {
-		model.getAllRecords()
+		getAllRecords(model.endpoint)
 			.then(records => setData(records))
 			.catch(error => console.error(error));
 	}, [setData]);

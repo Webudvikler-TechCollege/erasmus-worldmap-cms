@@ -3,22 +3,17 @@ import { ContentWrapper } from "../../Components/ContentWrapper/ContentWrapper.j
 import { FormPresenter } from "../../Components/Presenters/FormPresenter.jsx"
 import { useEffect, useState } from "react"
 import { NewsModel as model } from "../../Models/News.model.js"
+import { getSingleRecord } from "../../Utils/ApiUtils.js"
 
 export const NewsEdit = () => {
 	const { id } = useParams()
 	const [ data, setData ] = useState(null)
 
 	useEffect(() => {
-		model.getSingleRecord(id)
+		getSingleRecord(model.endpoint, id)
 			.then(data => setData(data))
 			.catch(error => console.error(error))
 	}, [id])
-
-	model.elements.forEach(element => {
-		if (data) {
-			element.value = data[element.name]
-		}
-	})			
 
 	return (
 		<ContentWrapper title={model.section} subtitle="Rediger">

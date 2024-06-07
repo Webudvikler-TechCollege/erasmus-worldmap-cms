@@ -3,13 +3,14 @@ import { ContentWrapper } from "../../Components/ContentWrapper/ContentWrapper"
 import { ViewPresenter } from "../../Components/Presenters/ViewPresenter"
 import { useParams } from "react-router-dom"
 import { ActivityModel as model } from "../../Models/Activity.model"
+import { getSingleRecord } from "../../Utils/ApiUtils"
 
 export const ActivityView = () => {
 	const [ data, setData ] = useState([])
 	const { id } = useParams()
 
 	useEffect(() => {
-		model.getSingleRecord(id)
+		getSingleRecord(model.endpoint,id)
 			.then(data => setData(data))
 			.catch(error => console.error(error))
 	}, [setData])

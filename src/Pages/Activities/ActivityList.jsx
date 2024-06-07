@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { ListPresenter } from "../../Components/Presenters/ListPresenter"
 import { ContentWrapper } from "../../Components/ContentWrapper/ContentWrapper"
 import { ActivityModel as model } from "../../Models/Activity.model"
+import { getAllRecords } from "../../Utils/ApiUtils"
 
 export const ActivityList = () => {
 	const [ data, setData ] = useState([])
@@ -15,7 +16,7 @@ export const ActivityList = () => {
 	]
 
 	useEffect(() => {
-		model.getAllRecords()
+		getAllRecords(model.endpoint)
 			.then(records => setData(records))
 			.catch(error => console.error(error));
 	}, [setData]);

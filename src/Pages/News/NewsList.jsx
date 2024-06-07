@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { ListPresenter } from "../../Components/Presenters/ListPresenter"
 import { ContentWrapper } from "../../Components/ContentWrapper/ContentWrapper"
 import { NewsModel as model } from "../../Models/News.model"
+import { getAllRecords } from "../../Utils/ApiUtils"
 
 export const NewsList = () => {
 	const [ data, setData ] = useState([])
@@ -16,7 +17,7 @@ export const NewsList = () => {
 	]
 
 	useEffect(() => {
-		model.getAllRecords()
+		getAllRecords(model.endpoint)
 			.then(records => setData(records))
 			.catch(error => console.error(error));
 	}, [setData]);

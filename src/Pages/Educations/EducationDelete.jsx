@@ -6,6 +6,7 @@ import { useAuth } from "../../Providers/AuthProvider"
 import { EducationModel as model } from "../../Models/Education.model"
 import { setHeaderOptions } from "../../Utils/Main.utils"
 import { Button } from "../../Components/Button/Button"
+import { deleteRecord, getSingleRecord } from "../../Utils/ApiUtils"
 
 export const EducationDelete = () => {
   const { id } = useParams()
@@ -14,20 +15,20 @@ export const EducationDelete = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    model.getSingleRecord(id)
+    getSingleRecord(id, model.endpoint)
       .then(data => setData(data))
       .catch(error => console.error(error))
   }, [setData])
 
   const handleDelete = async () => {
-    const { error } = await model.deleteRecord(id, setHeaderOptions(loginData.access_token))
+    const { error } = await deleteRecord(model.endpoint, id, setHeaderOptions(loginData.access_token))
     if(error) return console.error(error)
  	  navigate(`/${model.path}`)
   }
 
   return (
     <ContentWrapper title={model.section} subtitle="Slet">
-      <p>Er du sikker på at du vil slette uddannelsen <i>{data.name}</i>?</p>
+      <p>Er du sikker på at du vil slette denne post?</p>
       <p>Handlingen kan ikke fortrydes.</p>
       <Button event={handleDelete}>Slet</Button>
     </ContentWrapper>
