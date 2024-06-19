@@ -1,7 +1,5 @@
-import axios from "axios";
 import { EducationModel } from "./Education.model";
 import { LocationModel } from "./Location.model";
-
 export class ActivityModel {
 	static section = 'Aktiviteter'
 

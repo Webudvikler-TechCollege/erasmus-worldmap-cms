@@ -1,5 +1,3 @@
-import axios from "axios";
-
 export class ImageModel {
 	static section = 'Billeddatabase'
 

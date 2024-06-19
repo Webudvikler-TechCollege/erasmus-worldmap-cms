@@ -1,5 +1,3 @@
-import axios from "axios";
-
 export class LocationModel {
 	static section = 'Lokationer'
 
@@ -36,7 +34,7 @@ export class LocationModel {
 			required: true
 		},
 		{ 
-			name: "longtitude", 
+			name: "longitude", 
 			title: "Længdegrad", 
 			type: "text", 
 			default: 0,

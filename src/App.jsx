@@ -5,10 +5,8 @@ import { Grid } from "./Components/Grid/Grid"
 import { Navbar } from "./Components/Navbar/Navbar"
 import { Main } from "./Components/Main/Main"
 import { AppRouter } from "./Components/AppRouter/AppRouter"
-import { Wrapper } from "./Components/Wrapper/Wrapper"
-import { LoginInfo } from "./Components/Auth/LoginInfo/LoginInfo"
 
-function App() {
+const App = () => {
   return (
     <ContainerStyle $maxwidth="1024">
       <Grid>
