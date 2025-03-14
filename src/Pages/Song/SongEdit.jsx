@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom"
 import { ContentWrapper } from "../../Components/ContentWrapper/ContentWrapper.jsx"
 import { FormPresenter } from "../../Components/Presenters/FormPresenter.jsx"
-import { ActivityModel as model } from "../../Models/Activity.model.js"
+import { SongModel as model } from "../../Models/Song.model.js"
 
-export const ActivityEdit = () => {
+export const SongEdit = () => {
 	const { id } = useParams()
 
 	return (

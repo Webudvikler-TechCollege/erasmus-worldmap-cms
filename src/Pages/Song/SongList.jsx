@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react"
 import { ListPresenter } from "../../Components/Presenters/ListPresenter"
 import { ContentWrapper } from "../../Components/ContentWrapper/ContentWrapper"
-import { ImageModel as model } from "../../Models/Image.model"
+import { SongModel as model } from "../../Models/Song.model"
+import { getAllRecords } from "../../Utils/ApiUtils"
 
-export const ImageList = () => {
+export const SongList = () => {
 	const [ data, setData ] = useState([])
 
-	const list_items = ['title', 'filename']
+	const list_items = ['title']
 	const elements = model.elements.filter(item => list_items.includes(item.name))
 	elements.push({ name: "action", title: "Handling" })
 
@@ -15,10 +16,10 @@ export const ImageList = () => {
 	]
 
 	useEffect(() => {
-		model.getAllRecords()
+		getAllRecords(model.endpoint)
 			.then(records => setData(records))
 			.catch(error => console.error(error));
-	}, [setData]);
+	}, [setData]);	
 
 	return (
 		<ContentWrapper title={model.section} subtitle="Oversigt" buttons={arrButtons}>

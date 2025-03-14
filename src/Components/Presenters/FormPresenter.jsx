@@ -56,10 +56,18 @@ export const FormPresenter = ({ model, id = 0 }) => {
   }, [model.elements])
 
   const formHandler = async data => {
-    const method = id ? updateRecord : createRecord
-    const result = await method(model.endpoint, data, setHeaderOptions(loginData.access_token))
-    const return_id = result.id ? result.id : id
-    console.log(return_id);
+    console.log(id);
+    
+    const request = id ? { 
+      method: updateRecord,
+      url: `${model.endpoint}/${id}`
+    } : {
+      method: createRecord,
+      url: model.endpoint
+    }
+    const result = await request.method(request.url, data, setHeaderOptions(loginData.access_token))
+    
+    const return_id = result?.data?.id ? result?.data?.id : id
     navigate(`/${location.pathname.split("/")[1]}/view/${return_id}`)
   }
 

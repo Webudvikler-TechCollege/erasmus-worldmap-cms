@@ -1,1 +1,1 @@
-export const SiteName = "Erasmus Worldmap"
+export const SiteName = "SingOnline"

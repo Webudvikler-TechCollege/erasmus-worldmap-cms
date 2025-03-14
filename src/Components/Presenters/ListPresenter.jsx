@@ -5,7 +5,6 @@ import { PiPencil } from "react-icons/pi"
 import { FaEye } from "react-icons/fa6";
 
 export const ListPresenter = ({ elements, data }) => {
-
 	return (
 		<AdminTable className="list">
 			<thead>

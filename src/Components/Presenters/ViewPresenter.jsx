@@ -9,9 +9,10 @@ export const ViewPresenter = ({ model, data }) => {
   useEffect(() => {
 		const parseData = async () => {
 			try {
-				const newData = { ...data };
+				const newData = { ...data };        
 				model.elements.filter(item => item.model).forEach(elm => {
-					newData[elm.name] = data[elm.name.split('_')[0]];
+          const value = data[elm.name.split('_')[0]];
+          newData[elm.name] = value && typeof value === "object" ? value.name : value;
 				});
 				model.elements.filter(x => x.type === 'checkbox').forEach(elm => {
 					newData[elm.name] = parseInt(data[elm.name]) === 1 ? 
@@ -34,11 +35,13 @@ export const ViewPresenter = ({ model, data }) => {
     <AdminTable className="view">
       <tbody>
         {model.elements &&
-          model.elements.map((element, index) => {
+          model.elements.map((element, index) => {            
             return (
               <tr key={index}>
-                <td className="field">{element.title}</td>
-                <td>{parsedData[element.name]}</td>
+                <td className={`field`}>{element.title}</td>
+                <td className="content">
+                  <pre>{parsedData[element.name]}</pre>
+                </td>
               </tr>
             )
           })}

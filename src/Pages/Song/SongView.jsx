@@ -2,10 +2,10 @@ import { useEffect, useState } from "react"
 import { ContentWrapper } from "../../Components/ContentWrapper/ContentWrapper"
 import { ViewPresenter } from "../../Components/Presenters/ViewPresenter"
 import { useParams } from "react-router-dom"
-import { ActivityModel as model } from "../../Models/Activity.model"
+import { SongModel as model } from "../../Models/Song.model"
 import { getSingleRecord } from "../../Utils/ApiUtils"
 
-export const ActivityView = () => {
+export const SongView = () => {
 	const [ data, setData ] = useState([])
 	const { id } = useParams()
 

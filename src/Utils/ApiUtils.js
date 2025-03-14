@@ -8,10 +8,11 @@ import axios from "axios";
 export const getAllRecords = async (endpoint) => {
 	try {
 		let { data, error } = await axios.get(endpoint)
+
 		if (error) {
 			throw new Error(error.message);
 		} else {
-			return data.items
+			return data.data
 		}
 
 	} catch(error) {
@@ -32,7 +33,7 @@ export const getSingleRecord = async (endpoint, id) => {
 		if (error) {
 			throw new Error(error.message);
 		} else {
-			return data.item
+			return data.data
 		}
 
 	} catch(error) {

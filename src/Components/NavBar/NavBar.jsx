@@ -10,19 +10,10 @@ export const Navbar = ({ area }) => {
             <a href="/">Hjem</a>
           </li>
           <li>
-            <a href="/activities">Aktiviteter</a>
+            <a href="/songs">Songs</a>
           </li>
           <li>
-            <a href="/educations">Uddannelser</a>
-          </li>
-          <li>
-            <a href="/locations">Lokationer</a>
-          </li>
-          <li>
-            <a href="/news">Nyheder</a>
-          </li>
-          <li>
-            <a href="/images">Billeder</a>
+            <a href="/artists">Artister</a>
           </li>
         </ul>
       </nav>

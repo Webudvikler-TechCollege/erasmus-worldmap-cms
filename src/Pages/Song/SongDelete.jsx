@@ -3,12 +3,12 @@ import { useEffect, useState } from "react"
 import { ContentWrapper } from "../../Components/ContentWrapper/ContentWrapper"
 import { useNavigate, useParams } from "react-router-dom"
 import { useAuth } from "../../Providers/AuthProvider"
-import { ActivityModel as model } from "../../Models/Activity.model"
+import { SongModel as model } from "../../Models/Song.model"
 import { setHeaderOptions } from "../../Utils/Main.utils"
 import { Button } from "../../Components/Button/Button"
-import { getSingleRecord } from "../../Utils/ApiUtils"
+import { deleteRecord, getSingleRecord } from "../../Utils/ApiUtils"
 
-export const ActivityDelete = () => {
+export const SongDelete = () => {
   const { id } = useParams()
   const { loginData } = useAuth()
   const [data, setData] = useState([])

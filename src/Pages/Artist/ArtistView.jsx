@@ -1,16 +1,16 @@
-import axios from "axios"
 import { useEffect, useState } from "react"
 import { ContentWrapper } from "../../Components/ContentWrapper/ContentWrapper"
 import { ViewPresenter } from "../../Components/Presenters/ViewPresenter"
 import { useParams } from "react-router-dom"
-import { ImageModel as model } from "../../Models/Image.model"
+import { ArtistModel as model } from "../../Models/Artist.model"
+import { getSingleRecord } from "../../Utils/ApiUtils"
 
-export const ImageView = () => {
+export const ArtistView = () => {
 	const [ data, setData ] = useState([])
 	const { id } = useParams()
 
 	useEffect(() => {
-		model.getSingleRecord(id)
+		getSingleRecord(model.endpoint,id)
 			.then(data => setData(data))
 			.catch(error => console.error(error))
 	}, [setData])

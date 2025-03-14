@@ -3,32 +3,31 @@ import { useEffect, useState } from "react"
 import { ContentWrapper } from "../../Components/ContentWrapper/ContentWrapper"
 import { useNavigate, useParams } from "react-router-dom"
 import { useAuth } from "../../Providers/AuthProvider"
-import { EducationModel as model } from "../../Models/Education.model"
+import { ArtistModel as model } from "../../Models/Artist.model"
 import { setHeaderOptions } from "../../Utils/Main.utils"
 import { Button } from "../../Components/Button/Button"
 import { deleteRecord, getSingleRecord } from "../../Utils/ApiUtils"
 
-export const EducationDelete = () => {
+export const ArtistDelete = () => {
   const { id } = useParams()
   const { loginData } = useAuth()
   const [data, setData] = useState([])
   const navigate = useNavigate()
 
   useEffect(() => {
-    getSingleRecord(id, model.endpoint)
+    getSingleRecord(model.endpoint,id)
       .then(data => setData(data))
       .catch(error => console.error(error))
   }, [setData])
 
   const handleDelete = async () => {
-    const { error } = await deleteRecord(model.endpoint, id, setHeaderOptions(loginData.access_token))
-    if(error) return console.error(error)
+    await deleteRecord(model.endpoint, id, setHeaderOptions(loginData.access_token))
  	  navigate(`/${model.path}`)
   }
 
   return (
     <ContentWrapper title={model.section} subtitle="Slet">
-      <p>Er du sikker på at du vil slette denne post?</p>
+      <p>Er du sikker på at du vil slette denne post: <i>{data.title}</i>?</p>
       <p>Handlingen kan ikke fortrydes.</p>
       <Button event={handleDelete}>Slet</Button>
     </ContentWrapper>

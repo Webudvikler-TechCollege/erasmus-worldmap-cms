@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom"
-import { ContentWrapper } from "../../Components/ContentWrapper/ContentWrapper"
+import { ContentWrapper } from "../../Components/ContentWrapper/ContentWrapper.jsx"
 import { FormPresenter } from "../../Components/Presenters/FormPresenter.jsx"
-import { LocationModel as model } from "../../Models/Location.model"
+import { ArtistModel as model } from "../../Models/Artist.model.js"
 
-export const LocationEdit = () => {
+export const ArtistEdit = () => {
 	const { id } = useParams()
 
 	return (

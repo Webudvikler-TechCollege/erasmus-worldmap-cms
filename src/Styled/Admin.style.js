@@ -64,6 +64,10 @@ export const AdminTable = styled.table`
     font-weight: bold;
     width: 20%;
   }
+
+  .content {
+    white-space: pre-wrap;
+  }
 `
 
 export const AdminForm = styled.form`

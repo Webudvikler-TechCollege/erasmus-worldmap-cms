@@ -1,8 +1,8 @@
 import { ContentWrapper } from "../../Components/ContentWrapper/ContentWrapper"
 import { FormPresenter } from "../../Components/Presenters/FormPresenter.jsx"
-import { ActivityModel as model } from "../../Models/Activity.model"
+import { SongModel as model } from "../../Models/Song.model"
 
-export const ActivityCreate = () => {
+export const SongCreate = () => {
 	return (
 		<ContentWrapper title={model.section} subtitle="Opret ny">
 			<FormPresenter model={model} />
